@@ -1,8 +1,34 @@
 'use client'
 
+import { useState } from 'react'
 import { motion } from 'framer-motion'
 import AnimatedBackground from '@/components/ui/AnimatedBackground'
 import FloatingMap from '@/components/ui/FloatingMap'
+
+const DUTCH_CITIES = [
+  'Amsterdam',
+  'Rotterdam',
+  'Den Haag',
+  'Utrecht',
+  'Eindhoven',
+  'Groningen',
+  'Tilburg',
+  'Almere',
+  'Breda',
+  'Nijmegen',
+  'Enschede',
+  'Haarlem',
+  'Arnhem',
+  'Amersfoort',
+  'Apeldoorn',
+  'Maastricht',
+  'Leiden',
+  'Dordrecht',
+  'Zwolle',
+  'Delft',
+  "'s-Hertogenbosch",
+  'Leeuwarden',
+] as const
 
 const container = {
   hidden: { opacity: 0, y: 30 },
@@ -23,6 +49,20 @@ const item = {
 }
 
 export default function HomePage() {
+  const [city, setCity] = useState<string>('')
+  const [cityError, setCityError] = useState<string>('')
+
+  const handleSearch = () => {
+    if (!city) {
+      setCityError('Please select a city')
+      return
+    }
+    setCityError('')
+    // Log city for now (can be integrated into search flow later)
+    console.log('Selected city:', city)
+    // TODO: Integrate with search flow
+  }
+
   return (
     <main className="min-h-screen bg-[#050302] text-[#fdf3e7]">
       {/* HERO */}
@@ -58,11 +98,28 @@ export default function HomePage() {
                   <label className="mb-1 block text-xs font-medium text-[#b6a192]">
                     Where do you want to stay?
                   </label>
-                  <input
-                    type="text"
-                    placeholder="e.g. Amsterdam, Veluwe, coastline..."
-                    className="w-full rounded-xl bg-[#050302] px-3 py-3 text-sm text-[#fdf3e7] placeholder:text-[#6b5b4e] outline-none focus:ring-2 focus:ring-[#f4a259]"
-                  />
+                  <select
+                    value={city}
+                    onChange={(e) => {
+                      setCity(e.target.value)
+                      if (cityError) setCityError('')
+                    }}
+                    className={`w-full rounded-xl bg-[#050302] px-3 py-3 text-sm text-[#fdf3e7] outline-none focus:ring-2 focus:ring-[#f4a259] ${
+                      cityError ? 'border border-red-500/50' : ''
+                    }`}
+                  >
+                    <option value="" disabled>
+                      Select a city
+                    </option>
+                    {DUTCH_CITIES.map((cityName) => (
+                      <option key={cityName} value={cityName} className="bg-[#050302]">
+                        {cityName}
+                      </option>
+                    ))}
+                  </select>
+                  {cityError && (
+                    <p className="mt-1 text-xs text-red-400">{cityError}</p>
+                  )}
                 </div>
                 <div className="w-full md:w-48">
                   <label className="mb-1 block text-xs font-medium text-[#b6a192]">
@@ -76,6 +133,7 @@ export default function HomePage() {
                 </div>
               </div>
               <motion.button
+                onClick={handleSearch}
                 whileHover={{ y: -2, boxShadow: '0 12px 24px rgba(0,0,0,0.3)' }}
                 whileTap={{ y: 0 }}
                 className="mt-4 w-full rounded-xl bg-[#f4a259] px-4 py-3 text-sm font-semibold text-[#1b130f] shadow-sm transition duration-200 ease-[var(--ease-smooth)] hover:bg-[#f6b36f] hover:shadow-md"
