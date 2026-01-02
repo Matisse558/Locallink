@@ -14,14 +14,14 @@ export default function About() {
   return (
     <div className="min-h-screen">
       {/* Hero / Intro Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-body via-surface to-elevated py-14 md:py-20">
+      <section className="relative overflow-hidden bg-gradient-to-br from-body via-surface to-elevated pt-24 pb-16 md:pt-28">
         <div className="absolute top-16 right-0 z-[2] h-96 w-96 rounded-full bg-[radial-gradient(circle,rgba(244,162,89,0.15)_0%,transparent_70%)] blur-3xl opacity-35 animate-blob" />
         <div className="absolute bottom-12 left-0 z-[2] h-80 w-80 rounded-full bg-[radial-gradient(circle,rgba(249,115,98,0.12)_0%,transparent_70%)] blur-3xl opacity-30 animate-blob-delay" />
 
         <div className="relative z-10 mx-auto max-w-4xl px-4 text-center">
           <motion.div initial="hidden" animate="visible" variants={fadeUp}>
-            <h1 className="heading-xl mb-6 leading-tight">About LocalLinkNL</h1>
-            <p className="body-base md:text-lg text-text-secondary mx-auto max-w-3xl leading-relaxed">
+            <h1 className="text-4xl md:text-6xl font-semibold tracking-tight text-[#fdf3e7] mb-4">About</h1>
+            <p className="body-base md:text-lg text-text-secondary mx-auto max-w-2xl leading-relaxed mt-4">
               LocalLinkNL (formerly StayLocalNL) was founded to keep tourism spending inside the Dutch economy. We connect travelers, hotels, B&Bs, and Dutch suppliers so everyone benefits from a fair, local value chain.
             </p>
           </motion.div>

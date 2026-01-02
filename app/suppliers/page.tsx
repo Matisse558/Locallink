@@ -27,37 +27,29 @@ export default function Suppliers() {
       {/* Hero */}
       <section className="relative overflow-hidden bg-gradient-to-b from-[#050302] via-[#0b0705] to-[#120b07]">
         <AnimatedBackground variant="suppliers" />
-        <div className="pointer-events-none absolute inset-0 flex items-center justify-center overflow-hidden">
-          <span className="text-[64px] md:text-[120px] lg:text-[160px] font-semibold tracking-[0.16em] text-white/6 md:text-center">
-            SUPPLIERS
-          </span>
-        </div>
-
-        <div className="relative mx-auto flex max-w-6xl flex-col gap-10 px-4 pb-20 pt-18 md:flex-row md:items-center md:pb-24 md:pt-24">
-          <div className="relative z-10 max-w-xl space-y-5">
-            <motion.div
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.35 }}
-              variants={container}
-              className="space-y-5"
-            >
-              <motion.h1 className="heading-lg md:text-5xl font-semibold tracking-tight text-[#fdf3e7]" variants={item}>
-                Connect your business with hotels that buy local.
-              </motion.h1>
-              <motion.p className="body-base text-text-secondary max-w-xl leading-relaxed" variants={item}>
-                LocalLinkNL links Dutch suppliers with hotels and B&Bs. Reach hospitality teams that choose regional products and build long-term partnerships.
-              </motion.p>
-              <motion.div className="flex flex-col gap-3 md:flex-row md:items-center" variants={item}>
-                <Button href="/login" variant="primary" size="lg">
-                  Join as a supplier
-                </Button>
-                <a href="/suppliers#features" className="text-sm text-text-secondary transition-colors duration-200 hover:text-text-primary">
-                  Learn more about collaborating →
-                </a>
-              </motion.div>
+        <div className="relative mx-auto max-w-6xl px-4 pt-24 pb-16 md:pt-28">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.35 }}
+            variants={container}
+            className="max-w-2xl"
+          >
+            <motion.h1 className="text-4xl md:text-6xl font-semibold tracking-tight text-[#fdf3e7] mb-4" variants={item}>
+              Suppliers
+            </motion.h1>
+            <motion.p className="body-base text-text-secondary max-w-2xl leading-relaxed mt-4" variants={item}>
+              Connect your business with hotels that buy local. LocalLinkNL links Dutch suppliers with hotels and B&Bs. Reach hospitality teams that choose regional products and build long-term partnerships.
+            </motion.p>
+            <motion.div className="flex flex-col gap-3 md:flex-row md:items-center mt-8" variants={item}>
+              <Button href="/login" variant="primary" size="lg">
+                Join as a supplier
+              </Button>
+              <a href="/suppliers#features" className="text-sm text-text-secondary transition-colors duration-200 hover:text-text-primary">
+                Learn more about collaborating →
+              </a>
             </motion.div>
-          </div>
+          </motion.div>
         </div>
       </section>
 

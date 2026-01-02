@@ -25,41 +25,30 @@ export default function Hotels() {
     <div className="min-h-screen">
       {/* Hero */}
       <section className="relative overflow-hidden bg-gradient-to-b from-[#050302] via-[#0b0705] to-[#120b07]">
-        <div className="relative mx-auto flex max-w-6xl flex-col gap-10 px-4 pb-20 pt-18 md:flex-row md:items-center md:pb-24 md:pt-24">
-          <AnimatedBackground variant="hotels" />
-
-          {/* Ghost text */}
-          <div className="pointer-events-none absolute inset-0 flex items-center justify-start overflow-hidden">
-            <span className="text-[80px] md:text-[140px] lg:text-[180px] font-semibold tracking-[0.18em] text-white/6 md:text-right md:pr-10">
-              HOTELS
-            </span>
-          </div>
-
-          {/* Hero content */}
-          <div className="relative z-10 ml-auto max-w-xl space-y-5 text-left">
-            <motion.div
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.35 }}
-              variants={container}
-              className="space-y-5"
-            >
-              <motion.h1 className="heading-lg md:text-5xl font-semibold tracking-tight text-[#fdf3e7]" variants={item}>
-                More direct bookings, more local impact.
-              </motion.h1>
-              <motion.p className="body-base text-text-secondary max-w-xl leading-relaxed" variants={item}>
-                LocalLinkNL helps hotels and B&Bs drive direct bookings, source locally, and understand their impact on the Dutch economy.
-              </motion.p>
-              <motion.div className="flex flex-col gap-3 md:flex-row md:items-center" variants={item}>
-                <Button href="/login" variant="primary" size="lg">
-                  Join as a hotel
-                </Button>
-                <a href="/hotels#features" className="text-sm text-text-secondary transition-colors duration-200 hover:text-text-primary">
-                  See the dashboard →
-                </a>
-              </motion.div>
+        <AnimatedBackground variant="hotels" />
+        <div className="relative mx-auto max-w-6xl px-4 pt-24 pb-16 md:pt-28">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.35 }}
+            variants={container}
+            className="max-w-2xl"
+          >
+            <motion.h1 className="text-4xl md:text-6xl font-semibold tracking-tight text-[#fdf3e7] mb-4" variants={item}>
+              Hotels
+            </motion.h1>
+            <motion.p className="body-base text-text-secondary max-w-2xl leading-relaxed mt-4" variants={item}>
+              More direct bookings, more local impact. LocalLinkNL helps hotels and B&Bs drive direct bookings, source locally, and understand their impact on the Dutch economy.
+            </motion.p>
+            <motion.div className="flex flex-col gap-3 md:flex-row md:items-center mt-8" variants={item}>
+              <Button href="/login" variant="primary" size="lg">
+                Join as a hotel
+              </Button>
+              <a href="/hotels#features" className="text-sm text-text-secondary transition-colors duration-200 hover:text-text-primary">
+                See the dashboard →
+              </a>
             </motion.div>
-          </div>
+          </motion.div>
         </div>
       </section>
 
